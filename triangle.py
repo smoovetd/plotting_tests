@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt 
 from random import randint, uniform
 from math import sqrt, acos, pi, atan2
+from datetime import datetime
 
 ########### Convex Hull calculation ################
 
@@ -137,6 +138,7 @@ def run(a,b,c):
         print('Final point: [', point[0], point[1], ']')
 
     ax.fill(points_x, points_y)
+    plt.savefig('plot_' + str(datetime.now()) + '.jpg')
     plt.show()
 
 
@@ -167,15 +169,18 @@ def check_if_point_is_Inside_triangle(a,b,c,p):
         return True
     return False
 
-# angle_a = eval(input('enter first angle '))
-# angle_b = eval(input('enter second angle '))
-# angle_c = eval(input('enter third angle '))
 
-angle_a = [0,0]
-angle_b = [6,0]
-angle_c = [3,5.19]
+if __name__ == '__main__':
+    angle_a = eval(input('enter first angle '))
+    angle_b = eval(input('enter second angle '))
+    angle_c = eval(input('enter third angle '))
 
-run(angle_a, angle_b, angle_c)
+# angle_a = [0,0]
+# angle_b = [6,0]
+# angle_c = [3,5.19]
+
+    run(angle_a, angle_b, angle_c)
+
 
 ###################### Not used ##############################
 #def check_all_angles_in_figure_below_180(points:list, verbose=False) -> bool:
