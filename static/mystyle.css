@@ -1,0 +1,23 @@
+body {
+    background-color: lightblue;
+  }
+  
+  h1 {
+    color: navy;
+    margin-left: 20px;
+  }
+
+  table{
+    border: rgb(22, 64, 99);
+    border-style: solid;
+  }
+
+  tr{
+    border: rgb(22, 64, 99);
+    border-style: solid;
+  }
+
+  td{
+    border: rgb(22, 64, 99);
+    border-style: dotted;
+  }

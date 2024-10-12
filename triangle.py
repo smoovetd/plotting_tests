@@ -45,13 +45,14 @@ def get_convex_hull_points(points: list):
 
 
 #################### Main part ###################### 
-def run(a,b,c):
+def run(a,b,c, do_show=True):
     '''Run program: 
         1. Create triangle by the input points
         2. Generate random number of points inside triangle that form convex hull
         3. Draw the convex hull '''
 
     xmin, xmax, ymin, ymax = -5, 5, -5, 5
+    plt.close()
 
     ax = plt.subplot(1,1,1)
     colors = ['m', 'g', 'r']
@@ -86,7 +87,6 @@ def run(a,b,c):
     # ax.plot([b[0], c[0]], [b[1],c[1]])
     # ax.plot([c[0], a[0]], [c[1],a[1]])
     draw_triangle_by_three_points_and_plot(a,b,c,ax)
-
 
     points = []
     points_x = []
@@ -138,12 +138,17 @@ def run(a,b,c):
         print('Final point: [', point[0], point[1], ']')
 
     ax.fill(points_x, points_y)
-    plt.savefig('plot_' + str(datetime.now()) + '.jpg')
-    plt.show()
+    fig_name = 'static/plot_' + str(datetime.now()) + '.jpg'
+    fig_name.replace(' ', '')
+    plt.savefig(fig_name)
 
+    if do_show:
+        plt.show()
+
+    return fig_name, result
 
 def draw_triangle_by_three_points_and_plot(point1, point2, point3, plotter):
-    plotter.plot([point1[0], point2[0]], [point2[1],point1[1]])
+    plotter.plot([point1[0], point2[0]], [point1[1],point2[1]])
     plotter.plot([point2[0], point3[0]], [point2[1],point3[1]])
     plotter.plot([point3[0], point1[0]], [point3[1],point1[1]])
 

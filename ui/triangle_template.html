@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Convex hull triangle</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyle.css') }}">
+    </head>
+    <body>
+        <h1>Convex Hull</h1>
+        <h4>Enter coordinated for three points below. They should form equilateral triangle</h4>
+        <form action="/triangle" method="post" >
+            <table>
+                <tr>
+                    <th>Point A</th>
+                    <th>Point B</th>
+                    <th>Point C</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="point_a_x">X: </label>
+                        <input type="number" step="0.0001" id="point_a_x" name="point_a_x" value="{{ a_x }}"><br><br>
+                        <label for="point_a_y">Y: </label>
+                        <input type="number" step="0.0001" id="point_a_y" name="point_a_y" value="{{ a_y }}"><br><br>
+                    </td>
+                    <td>
+                        <label for="point_b_x">X: </label>
+                        <input type="number" step="0.0001" id="point_b_x" name="point_b_x" value="{{ b_x }}"><br><br>
+                        <label for="point_b_y">Y: </label>
+                        <input type="number" step="0.0001"id="point_b_y" name="point_b_y" value="{{ b_y }}"><br><br>
+                    </td>
+                    <td>
+                        <label for="point_c_x">X: </label>
+                        <input type="number" step="0.0001" id="point_c_x" name="point_c_x" value="{{ c_x }}"><br><br>
+                        <label for="point_c_y">Y: </label>
+                        <input type="number" step="0.0001" id="point_c_y" name="point_c_y" value="{{ c_y }}"><br><br>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" name = "submit" value="Submit Form" formaction="/triangle" formenctype="application/json" 
+            <br>
+        </form>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
